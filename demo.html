@@ -23,15 +23,17 @@
     <div id="allmap"></div>
 
     <script>
-        wx.getLocation({
-            success: function(res) {
-                alert(JSON.stringify(res));
-            },
-            cancel: function(res) {
-                alert('用户拒绝授权获取地理位置');
-            }
-        });
-        // var key = m9mBP1IUiu5BtBQhro3lKFto5MaHhyEN;
+        wx.ready(function() {
+                wx.getLocation({
+                    success: function(res) {
+                        alert(JSON.stringify(res));
+                    },
+                    cancel: function(res) {
+                        alert('用户拒绝授权获取地理位置');
+                    }
+                });
+            })
+            // var key = m9mBP1IUiu5BtBQhro3lKFto5MaHhyEN;
         var map = new BMap.Map("allmap");
         var point = new BMap.Point(120.219375, 30.259244);
         map.centerAndZoom(point, 12);
